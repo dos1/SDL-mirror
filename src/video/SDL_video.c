@@ -37,7 +37,7 @@
 #include "SDL_opengl.h"
 #endif /* SDL_VIDEO_OPENGL */
 
-#if SDL_VIDEO_OPENGL_ES
+#if SDL_VIDEO_OPENGL_ES && !SDL_VIDEO_OPENGL_ES2
 #include "SDL_opengles.h"
 #endif /* SDL_VIDEO_OPENGL_ES */
 
