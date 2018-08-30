@@ -159,8 +159,8 @@ extern DECLSPEC void SDLCALL SDL_MemoryBarrierAcquireFunction(void);
 #define SDL_MemoryBarrierRelease()   __asm__ __volatile__ ("lwsync" : : : "memory")
 #define SDL_MemoryBarrierAcquire()   __asm__ __volatile__ ("lwsync" : : : "memory")
 #elif defined(__GNUC__) && defined(__aarch64__)
-#define SDL_MemoryBarrierRelease()   __asm__ __volatile__ ("dmb ish" : : : "memory")
-#define SDL_MemoryBarrierAcquire()   __asm__ __volatile__ ("dmb ish" : : : "memory")
+#define SDL_MemoryBarrierRelease()   __asm__ __volatile__ ("dmb" : : : "memory")
+#define SDL_MemoryBarrierAcquire()   __asm__ __volatile__ ("dmb" : : : "memory")
 #elif defined(__GNUC__) && defined(__arm__)
 #if 0 /* defined(__LINUX__) || defined(__ANDROID__) */
 /* Information from:
@@ -179,8 +179,8 @@ typedef void (*SDL_KernelMemoryBarrierFunc)();
 #define SDL_MemoryBarrierAcquire()   __cpu_membarrier()
 #else
 #if defined(__ARM_ARCH_7__) || defined(__ARM_ARCH_7A__) || defined(__ARM_ARCH_7EM__) || defined(__ARM_ARCH_7R__) || defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7S__) || defined(__ARM_ARCH_8A__)
-#define SDL_MemoryBarrierRelease()   __asm__ __volatile__ ("dmb ish" : : : "memory")
-#define SDL_MemoryBarrierAcquire()   __asm__ __volatile__ ("dmb ish" : : : "memory")
+#define SDL_MemoryBarrierRelease()   __asm__ __volatile__ ("dmb" : : : "memory")
+#define SDL_MemoryBarrierAcquire()   __asm__ __volatile__ ("dmb" : : : "memory")
 #elif defined(__ARM_ARCH_6__) || defined(__ARM_ARCH_6J__) || defined(__ARM_ARCH_6K__) || defined(__ARM_ARCH_6T2__) || defined(__ARM_ARCH_6Z__) || defined(__ARM_ARCH_6ZK__) || defined(__ARM_ARCH_5TE__)
 #ifdef __thumb__
 /* The mcr instruction isn't available in thumb mode, use real functions */
