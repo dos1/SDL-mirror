@@ -1098,6 +1098,7 @@ X11_DispatchEvent(_THIS)
                 printf("window %p: WM_TAKE_FOCUS\n", data);
 #endif
                 SDL_SendWindowEvent(data->window, SDL_WINDOWEVENT_TAKE_FOCUS, 0, 0);
+                X11_SetWindowInputFocus(_this, data->window);
                 break;
             }
         }
