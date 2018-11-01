@@ -426,8 +426,8 @@ X11_DispatchMapNotify(SDL_WindowData *data)
 static void
 X11_DispatchUnmapNotify(SDL_WindowData *data)
 {
-    SDL_SendWindowEvent(data->window, SDL_WINDOWEVENT_HIDDEN, 0, 0);
-    SDL_SendWindowEvent(data->window, SDL_WINDOWEVENT_MINIMIZED, 0, 0);
+    //SDL_SendWindowEvent(data->window, SDL_WINDOWEVENT_HIDDEN, 0, 0);
+    //SDL_SendWindowEvent(data->window, SDL_WINDOWEVENT_MINIMIZED, 0, 0);
 }
 
 static void
