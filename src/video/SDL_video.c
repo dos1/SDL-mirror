@@ -2636,19 +2636,7 @@ SDL_OnWindowFocusGained(SDL_Window * window)
 static SDL_bool
 ShouldMinimizeOnFocusLoss(SDL_Window * window)
 {
-    if (!(window->flags & SDL_WINDOW_FULLSCREEN) || window->is_destroying) {
-        return SDL_FALSE;
-    }
-
-#ifdef __MACOSX__
-    if (SDL_strcmp(_this->name, "cocoa") == 0) {  /* don't do this for X11, etc */
-        if (Cocoa_IsWindowInFullscreenSpace(window)) {
-            return SDL_FALSE;
-        }
-    }
-#endif
-
-    return SDL_GetHintBoolean(SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS, SDL_TRUE);
+    return SDL_FALSE;
 }
 
 void
